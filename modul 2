@@ -1,0 +1,19 @@
+from tkinter import*
+
+class Terow():
+    def __init__(self):
+        self.yo()
+        self.ba()
+    def yo(self):
+        self.kanvas = Canvas(width = 200 , height = 100)
+        self.kanvas.pack()
+    def ba(self):
+        self.kanvas.create_rectangle(50,20,150,80 , fill = "green")
+        self.kanvas.create_rectangle(65,35,135,65 , fill = "yellow")
+        self.kanvas.create_line(0,0,50,20 , fill = "green" , width = 3)       
+        self.kanvas.create_line(0,100,50,80, fill = "green" , width = 3)
+        self.kanvas.create_line(200,0,150,20, fill = "green" ,  width = 3)
+        self.kanvas.create_line(200,100,150,80 , fill = "green" , width = 3)
+Tk()
+Terow()
+mainloop()        
