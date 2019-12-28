@@ -1,0 +1,40 @@
+from tkinter import Tk, Frame, Menu, Button, LEFT, TOP, X, FLAT, RAISED
+
+class membuatToolbar(Frame):
+    def __init__(self, parent):
+        Frame.__init__(self, parent)
+        self.window = parent
+
+        self.initUI()
+
+    def initUI(self):
+        self.window.title("Toolbar")
+        self.window.geometry("250x150")
+
+        self.buatMenuBar()
+        self.buatToolBar()
+        self.konfigurasiToolbardanMenuBar()
+
+    def buatMenuBar(self):
+        self.menubar = Menu(self.window)
+        self.fileMenu = Menu(self.window, tearoff=0)
+        self.fileMenu.add_command(label="Exit", command=self.onExit)
+        self.menubar.add_cascade(label="File", menu=self.fileMenu)
+
+    def buatToolBar(self):
+        self.toolbar = Frame(self.window, bd=1, relief=RAISED)
+        exitButton = Button(self.toolbar, text="exit", relief=FLAT,command=self.quit)
+        exitButton.pack(side=LEFT, padx=2, pady=2)
+
+    def konfigurasiToolbardanMenuBar(self):
+        self.toolbar.pack(side=TOP, fill=X)
+        self.window.config(menu=self.menubar)
+        self.pack()
+
+    def onExit(self):
+        self.quit()
+
+if __name__ == '__main__':
+    root = Tk()
+    app = membuatToolbar(root)
+    root.mainloop()
